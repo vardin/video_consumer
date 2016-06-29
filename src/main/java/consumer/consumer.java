@@ -21,7 +21,7 @@ public class consumer{
         Properties props = new Properties();
         props.put("group.id", "test-group");
         props.put("zookeeper.connect", "kafka1:2181,kafka2:2181,kafka3:2181");
-        props.put("auto.commit.interval.ms", "1000");
+        props.put("auto.commit.interval.ms", "100");
         ConsumerConfig consumerConfig = new ConsumerConfig(props);
         ConsumerConnector consumer = Consumer.createJavaConsumerConnector(consumerConfig);
         Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
@@ -30,16 +30,22 @@ public class consumer{
         List<KafkaStream<byte[], byte[]>> streams = consumerMap.get(TOPIC);
         ExecutorService executor = Executors.newFixedThreadPool(NUM_THREADS);
         for (final KafkaStream<byte[], byte[]> stream : streams) {
+        	
+        	    
             executor.execute(new Runnable() {
             
                 public void run() {
                     for (MessageAndMetadata<byte[], byte[]> messageAndMetadata : stream) {
-                        System.out.println(new String(messageAndMetadata.message()));
+                    	
+                    	String str="";
+                    	str = str + " Test";
+                    	str = new String(messageAndMetadata.message());
+                        System.out.println(str);
                     }
                 }
             });
         }
-        Thread.sleep(60000);
+        Thread.sleep(600);
         consumer.shutdown();
         executor.shutdown();
     }
