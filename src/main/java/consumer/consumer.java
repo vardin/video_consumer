@@ -38,7 +38,7 @@ public class consumer{
                     for (MessageAndMetadata<byte[], byte[]> messageAndMetadata : stream) {
                     	
                     	String str="";
-                    	str = str + " Test";
+                    	str = str + "    Test";
                     	str = new String(messageAndMetadata.message());
                         System.out.println(str);
                     }
