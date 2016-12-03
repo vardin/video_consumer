@@ -15,7 +15,7 @@ import kafka.message.MessageAndMetadata;
 
 
 public class consumer{
-    private static final String TOPIC = "test1";
+    private static final String TOPIC = "test2";
     private static final int NUM_THREADS = 20;
    
        
