@@ -32,5 +32,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/opencv2413"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/opencv-2411"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jcuda"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
